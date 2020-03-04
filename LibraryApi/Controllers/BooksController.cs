@@ -20,7 +20,7 @@ namespace LibraryApi.Controllers
         {
             bool didUpdate = await Mapper.UpdateNumberOfPages(id, newPages);
 
-            return this.Either(didUpdate);
+            return this.Either<NoContentResult, NotFoundResult>(didUpdate);
         }
 
         [HttpDelete("books/{id:int}")]
